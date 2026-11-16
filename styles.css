@@ -3507,3 +3507,30 @@ html .scene-hero h1 { font-size: clamp(2.8rem, 9vw, 9rem); }
 }
 html .scene-hero h1 { max-width: 100%; line-height: .92; }
 .scene-hero h1 span { white-space: nowrap; }
+
+
+/* Keep native selection and keyboard behavior, with a clearer field and arrow. */
+.lead-form select {
+  appearance: none;
+  color-scheme: dark;
+  min-height: 50px;
+  padding: .8rem 3rem .8rem 1rem;
+  color: var(--ink);
+  background-color: #171c13;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='m4 6 4 4 4-4' stroke='%23c4df65' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px;
+  border-color: #59634c;
+  line-height: 1.35;
+  cursor: pointer;
+}
+.lead-form select:hover { border-color: #a4be67; }
+.lead-form select:required:invalid { color: #b9c1b0; }
+.lead-form select option { background: #171c13; color: var(--ink); }
+@media (max-width: 680px) {
+  .lead-form select { font-size: 16px; }
+}
+@media (forced-colors: active) {
+  .lead-form select { appearance: auto; background-image: none; padding-inline-end: 1rem; }
+}
