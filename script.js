@@ -255,6 +255,12 @@ if ("IntersectionObserver" in window) {
 }
 
 const counterTargets = document.querySelectorAll("[data-counter]");
+const countersByAnchor = new Map();
+counterTargets.forEach((element) => {
+  const anchor = element.closest(".story-stat") || element;
+  if (!countersByAnchor.has(anchor)) countersByAnchor.set(anchor, []);
+  countersByAnchor.get(anchor).push(element);
+});
 
 const setCounterValue = (element, value) => {
   element.textContent = new Intl.NumberFormat("es-AR").format(Math.round(value));
@@ -290,14 +296,14 @@ if ("IntersectionObserver" in window) {
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        animateCounter(entry.target);
+        countersByAnchor.get(entry.target)?.forEach(animateCounter);
         counterObserver.unobserve(entry.target);
       });
     },
-    { threshold: 0.45 }
+    { threshold: 0.15 }
   );
 
-  counterTargets.forEach((element) => counterObserver.observe(element));
+  countersByAnchor.forEach((_, anchor) => counterObserver.observe(anchor));
 } else {
   counterTargets.forEach(animateCounter);
 }
