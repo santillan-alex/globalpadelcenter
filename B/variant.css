@@ -1,0 +1,46 @@
+.variant-b .scene-hero .variant-hero-grid {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  align-items: center;
+  align-content: center;
+  gap: clamp(2rem, 5vw, 5.5rem);
+  min-height: min(100svh, 55rem);
+  padding-block: clamp(6rem, 12vh, 8rem) 3rem;
+}
+html .variant-b .variant-hero-copy h1 {
+  margin-top: .85rem;
+  font-size: clamp(2.4rem, 5.55vw, 5.6rem);
+  line-height: .94;
+}
+.variant-b .variant-hero-copy .hero-description { margin: 1.15rem 0; max-width: 34ch; }
+.variant-b .variant-hero-panel {
+  background: rgba(8, 12, 7, .94);
+  padding: clamp(1.15rem, 3vw, 2rem);
+  border-color: rgba(208, 224, 184, .28);
+}
+.variant-b .variant-hero-panel h2 { font-size: clamp(1.4rem, 2.65vw, 2.15rem); line-height: 1.1; }
+.variant-b .variant-hero-panel .inquiry-intro { margin: .55rem 0 1.1rem; }
+.variant-b .variant-form-fields { gap: .8rem; }
+.variant-b .variant-form-fields input,
+.variant-b .variant-form-fields select { min-height: 46px; }
+.variant-b .variant-hero-panel .form-consent { display: flex; gap: .5rem; align-items: center; min-height: 44px; margin: .45rem 0 0; }
+.variant-b .variant-hero-panel .form-consent input { flex: none; }
+.variant-b .variant-hero-panel .form-preview { margin: 0 0 .65rem; }
+.variant-b .variant-hero-panel .gpc-button { width: 100%; justify-content: center; }
+.variant-b :is(#consulta-portada, #contacto, #experiencia) { scroll-margin-top: 6rem; }
+@media (max-width: 820px) {
+  .variant-b .scene-hero .variant-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 1.3rem; min-height: auto; padding-block: 5.65rem 1.8rem; }
+  html .variant-b .variant-hero-copy h1 { font-size: clamp(2rem, 8vw, 4.2rem); }
+  .variant-b .variant-hero-copy .hero-description { margin: .7rem 0; }
+  .variant-b .variant-hero-copy h1 span:nth-child(-n+2) { display: inline; }
+  .variant-b .variant-hero-copy h1 span:first-child { margin-right: .2em; }
+  .variant-b .variant-hero-panel { max-width: 34rem; width: 100%; }
+}
+@media (max-width: 680px) {
+  html .variant-b .variant-hero-copy h1 { font-size: clamp(1.8rem, 6.6vw, 2.9rem); }
+  .variant-b .variant-hero-panel .variant-form-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .variant-b .variant-hero-panel input:not([type="checkbox"]) { padding-inline: .55rem; font-size: 16px; }
+}
+@media (max-width: 345px) {
+  html .variant-b .variant-hero-copy h1 { font-size: 1.7rem; }
+  .variant-b .variant-hero-panel .form-consent { font-size: .72rem; }
+}

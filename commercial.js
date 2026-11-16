@@ -47,6 +47,7 @@
     const ready = config.formsEnabled === true;
     notice.textContent = ready ? '' : 'Versión de prueba: este formulario permite revisar el recorrido. No envía ni guarda tus datos.';
     if (!ready) button.textContent = 'Probar formulario';
+    if (form.dataset.formPlacement === 'hero_b') button.disabled = false;
     const date = form.querySelector('[name=date]');
     if (date) {
       const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Argentina/Cordoba' }).format(new Date());
@@ -73,7 +74,7 @@
         const result = await response.json();
         if (!response.ok || result.ok !== true || !result.receiptId) throw new Error('not_received');
         status.textContent = '¡Gracias por escribirnos! Recibimos tu consulta y te vamos a contactar por WhatsApp.';
-        window.GPCTrack?.('generate_lead', { service: data.service, form_type: date ? 'event' : 'general', page_path: location.pathname });
+        window.GPCTrack?.('generate_lead', { service: data.service, form_type: date ? 'event' : 'general', placement: form.dataset.formPlacement || '', page_path: location.pathname });
         form.reset();
       } catch (_) { status.textContent = 'No pudimos confirmar la recepción. Podés consultar por WhatsApp o volver a intentarlo.'; }
       finally { clearTimeout(timeout); sending = false; button.disabled = false; }
