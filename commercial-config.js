@@ -8,5 +8,5 @@ window.GPC_CONFIG = Object.freeze({
   ga4Id: 'G-1B64R6Q5KH',
   gtmId: '', // When GTM is set, configure GA4/Meta there to avoid duplicate tags.
   metaPixelId: '',
-  phones: { general: '543417560704', padel: '543417560704', eventos: '543417828537', bar: '543417828537', viandas: '' }
+  phones: { general: '543417560704', padel: '543417560704', eventos: '5493417828537', bar: '5493417828537', viandas: '5493417828537' }
 });

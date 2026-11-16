@@ -48,7 +48,16 @@
     notice.textContent = ready ? '' : 'Versión de prueba: este formulario permite revisar el recorrido. No envía ni guarda tus datos.';
     if (!ready) button.textContent = 'Probar formulario';
     const date = form.querySelector('[name=date]');
-    if (date) { const today = new Date(); date.min = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`; }
+    if (date) {
+      const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Argentina/Cordoba' }).format(new Date());
+      date.min = new Date(Date.parse(today + 'T00:00:00Z') + 7 * 86400000).toISOString().slice(0,10);
+      const guests = form.elements.guests;
+      const space = form.elements.space;
+      const syncCapacity = () => { guests.max = ['Bar','Canchas + bar'].includes(space.value) ? '80' : '120'; };
+      space.addEventListener('change', syncCapacity);
+      form.addEventListener('reset', () => queueMicrotask(syncCapacity));
+      syncCapacity();
+    }
     let sending = false;
     form.addEventListener('submit', async event => {
       event.preventDefault();
@@ -63,7 +72,7 @@
         const response = await fetch(config.leadEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...data, consent: data.consent === 'on', attribution, page: location.pathname }), signal: controller.signal });
         const result = await response.json();
         if (!response.ok || result.ok !== true || !result.receiptId) throw new Error('not_received');
-        status.textContent = 'Recibimos tu consulta. El equipo de Global se pondrá en contacto con vos.';
+        status.textContent = '¡Gracias por escribirnos! Recibimos tu consulta y te vamos a contactar por WhatsApp.';
         window.GPCTrack?.('generate_lead', { service: data.service, form_type: date ? 'event' : 'general', page_path: location.pathname });
         form.reset();
       } catch (_) { status.textContent = 'No pudimos confirmar la recepción. Podés consultar por WhatsApp o volver a intentarlo.'; }

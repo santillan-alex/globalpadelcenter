@@ -3495,3 +3495,15 @@ body:has(.legal-page) .gpc-nav-cta { grid-column:3; justify-self:end; width:auto
   .site-footer .footer-contact-row a { min-height:20px; height:20px; align-items:center; padding:0; line-height:20px; }
   .site-footer .footer-subscribe { grid-column:1 / -1; }
 }
+
+.home-services { padding-block: clamp(3.5rem, 8vw, 7.5rem); }
+.home-services h2 { margin-block: .5em 0; font-size: clamp(2rem, 5vw, 4.5rem); line-height: 1.06; }
+.home-services article { display: flex; flex-direction: column; align-items: flex-start; }
+.home-services article p { flex: 1; }
+.service-contact .gpc-actions { margin-top: 1.5rem; }
+html .scene-hero h1 { font-size: clamp(2.8rem, 9vw, 9rem); }
+@media (max-width: 680px) {
+  html .scene-hero h1 { font-size: clamp(2rem, 10.3vw, 4.55rem); }
+}
+html .scene-hero h1 { max-width: 100%; line-height: .92; }
+.scene-hero h1 span { white-space: nowrap; }

@@ -13,12 +13,19 @@ module.exports = async function handler(req, res) {
   const services = ['eventos', 'viandas', 'bar', 'padel'];
   if (text('website') || !text('name',100) || !/^[+0-9() .-]{8,30}$/.test(text('phone',31)) || !services.includes(data.service) || data.consent !== true) return res.status(400).json({ ok: false });
   if (text('email') && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text('email'))) return res.status(400).json({ ok: false });
-  const eventTypes = ['Cumpleaños', 'Corporativo', 'After office', 'Torneo privado', 'Reunión', 'Otro'];
-  if (data.service === 'eventos' && ('eventType' in data || 'guests' in data) && (!eventTypes.includes(data.eventType) || !Number.isInteger(Number(data.guests)) || +data.guests < 1 || +data.guests > 10000 || !/^\d{4}-\d{2}-\d{2}$/.test(text('date')) || !/^\d{2}:\d{2}$/.test(text('time')) || !['Sí','No','Quiero asesoramiento'].includes(data.food))) return res.status(400).json({ ok: false });
+  const eventTypes = ['Cumpleaños', 'Corporativo', 'After office', 'Torneo privado', 'Cata de vinos', 'Otro'];
+  if (data.service === 'eventos' && ('eventType' in data || 'guests' in data || data.page === '/eventos/')) {
+    const capacities = { Bar: 80, Terraza: 120, 'Canchas + bar': 80, 'Canchas + terraza': 120 };
+    const max = Object.hasOwn(capacities, data.space) ? capacities[data.space] : 0;
+    const eventDate = new Date(text('date') + 'T00:00:00Z');
+    const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Argentina/Cordoba' }).format(new Date());
+    const minDate = Date.parse(today + 'T00:00:00Z') + 7 * 86400000;
+    if (!eventTypes.includes(data.eventType) || !Number.isInteger(Number(data.guests)) || +data.guests < 1 || +data.guests > max || !Number.isFinite(+eventDate) || eventDate.toISOString().slice(0,10) !== text('date') || +eventDate < minDate || !['Desayuno','Almuerzo','After','Cena'].includes(data.time) || !['Sí','No','Quiero asesoramiento'].includes(data.food)) return res.status(400).json({ ok: false });
+  }
   let destination;
   try { destination = new URL(process.env.GPC_LEAD_WEBHOOK_URL); if (destination.protocol !== 'https:') throw new Error(); } catch (_) { return res.status(503).json({ ok: false }); }
   const receiptId = randomUUID();
-  const fields = ['name','phone','email','service','eventType','guests','date','time','food','padel','message','page'];
+  const fields = ['name','phone','email','service','eventType','guests','date','time','space','food','padel','message','page'];
   const lead = Object.fromEntries(fields.map(key => [key, text(key,key === 'message' ? 2000 : 200)]));
   lead.attribution = {};
   for (const key of ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','gbraid','wbraid','fbclid']) if (typeof data.attribution?.[key] === 'string') lead.attribution[key] = data.attribution[key].slice(0,250);
