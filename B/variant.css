@@ -110,3 +110,18 @@ html .variant-b .variant-hero-copy h1 {
 @media (prefers-reduced-motion: reduce) {
   .variant-b *, .variant-b *::before, .variant-b *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Final audit: readable copy, stable controls and less empty space on mobile. */
+.variant-b :is(.variant-plans-intro,.variant-plans article p,.bar-copy > p,.events-copy article p,.gallery-subtitle,.sponsors-subtitle,.inquiry-intro) { color: #d3d5cc; }
+.variant-b .lead-form .field-label { color: #e7e9df; }
+.variant-b .lead-form [aria-invalid="true"] { border-color: #f1b790; }
+.variant-b .lead-form .form-status:not(:empty) { padding: .8rem; border-left: 2px solid #d3f783; background: #11180c; line-height: 1.6; }
+.variant-b .stories-close,
+.variant-b .stories-nav button,
+.variant-b .stories-thumbs button { min-width: 44px; min-height: 44px; }
+.variant-b .variant-plans .service-cards article:focus-within { outline: 2px solid #d3f783; outline-offset: 3px; }
+.variant-b #ubicacion { scroll-margin-top: 6rem; }
+@media (max-width: 980px) { .variant-b .scene-hero { min-height: auto; } }
+@media (max-width: 380px) {
+  .variant-b .variant-hero-panel .variant-form-fields { grid-template-columns: minmax(0, 1fr); }
+}

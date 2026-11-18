@@ -64,7 +64,7 @@
     <link rel="preload" as="image" href="/assets/optimized/hero-global-hero-desktop.avif" type="image/avif" fetchpriority="high" />
     <link rel="stylesheet" href="/styles.css?v=global-selects" />
     <meta name="robots" content="noindex, nofollow" />
-    <link rel="stylesheet" href="/B/variant.css?v=3" />
+    <link rel="stylesheet" href="/B/variant.css?v=4" />
   </head>
   <body class="variant-b">
     <a class="variant-skip" href="#club">Ir a los planes de Global</a>
@@ -91,11 +91,11 @@
     </header>
 
     <main id="inicio">
-      <section class="gpc-hero scene scene-hero" data-scene>
+      <section class="gpc-hero scene scene-hero" data-scene aria-labelledby="titulo-portada">
         <div class="gpc-container scene-inner variant-hero-grid">
           <div class="variant-hero-copy">
             <p class="gpc-kicker">ENTRE RÍOS 542 · ROSARIO</p>
-            <h1><span>TU PRÓXIMO</span><span>PARTIDO</span><span>EMPIEZA ACÁ</span></h1>
+            <h1 id="titulo-portada"><span>TU PRÓXIMO</span><span>PARTIDO</span><span>EMPIEZA ACÁ</span></h1>
             <p class="hero-description">Canchas, eventos y gastronomía en un mismo lugar.</p>
             <div class="gpc-actions">
               <a class="gpc-button gpc-button-primary" href="https://wa.me/543417560704?text=Hola%20Global%20Padel%20Center%2C%20quiero%20reservar%20una%20cancha" target="_blank" rel="noopener noreferrer" data-ga-event="click_reservar_cancha" data-ga-label="hero_b">Reservá tu cancha</a>
@@ -108,7 +108,7 @@
             <form class="lead-form" data-lead-form data-form-placement="hero_b" method="post" aria-labelledby="titulo-consulta-portada">
               <div class="form-fields variant-form-fields">
                 <label><span class="field-label">Nombre</span><input name="name" autocomplete="given-name" placeholder="Tu nombre" maxlength="100" required></label>
-                <label><span class="field-label">WhatsApp</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Ej. 341 123 4567" maxlength="30" pattern="[+0-9() .\-]{8,30}" required></label>
+                <label><span class="field-label">WhatsApp</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Ej. 341 123 4567" maxlength="30" pattern="[+0-9\s\x28\x29.\x2D]{8,30}" title="Ingresá entre 8 y 30 caracteres: números, espacios, paréntesis, + o guiones." required></label>
                 <label class="form-wide"><span class="field-label">¿Qué te interesa?</span><select name="service" required><option value="">Seleccioná una opción</option><option value="padel">Reservar cancha</option><option value="eventos">Organizar un evento</option><option value="bar">Bar y gastronomía</option><option value="viandas">Viandas</option></select></label>
               </div>
               <label class="form-trap" aria-hidden="true">Dejá este campo vacío<input name="website" tabindex="-1" autocomplete="off"></label>
@@ -150,15 +150,15 @@
             <div class="story-stats" aria-label="Global Padel Center en n&uacute;meros">
               <div class="story-stat">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2.5 20c.7-3.3 2.7-5.2 5.5-5.2s4.8 1.9 5.5 5.2"></path><path d="M16.5 11a3.2 3.2 0 1 0 0-6.4M15 15c2.4.2 4.1 1.9 4.7 5"></path></svg>
-                <p><strong><span>+</span><b data-counter data-target="3500">3.500</b></strong><span>Jugadores de<br />nuestra comunidad</span></p>
+                <p><strong aria-label="Más de 3.500 jugadores"><span aria-hidden="true">+</span><b aria-hidden="true" data-counter data-target="3500">3.500</b></strong><span>Jugadores de<br />nuestra comunidad</span></p>
               </div>
               <div class="story-stat">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 5h10v4a5 5 0 0 1-10 0z"></path><path d="M17 7h3v2a3 3 0 0 1-3 3M7 7H4v2a3 3 0 0 0 3 3M12 14v4M8 20h8"></path></svg>
-                <p><strong><span>+</span><b data-counter data-target="120">120</b></strong><span>Torneos y eventos<br />realizados</span></p>
+                <p><strong aria-label="Más de 120 torneos y eventos"><span aria-hidden="true">+</span><b aria-hidden="true" data-counter data-target="120">120</b></strong><span>Torneos y eventos<br />realizados</span></p>
               </div>
               <div class="story-stat">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="5" width="16" height="15" rx="2"></rect><path d="M8 3v4M16 3v4M4 10h16"></path></svg>
-                <p><strong data-counter data-target="365">365</strong><span>D&iacute;as por a&ntilde;o para<br />disfrutar</span></p>
+                <p><strong aria-label="365 días"><span aria-hidden="true" data-counter data-target="365">365</span></strong><span>D&iacute;as por a&ntilde;o para<br />disfrutar</span></p>
               </div>
             </div>
         </div>
@@ -260,9 +260,9 @@
             </span>
           </button>
         </div>
-        <div class="stories-viewer" data-stories-viewer aria-hidden="true">
+        <div class="stories-viewer" data-stories-viewer aria-hidden="true" role="dialog" aria-modal="true" aria-label="Historias de Global">
           <button class="stories-close" type="button" data-stories-close aria-label="Cerrar historia">Cerrar</button>
-          <div class="stories-viewer-inner" role="dialog" aria-modal="true" aria-label="Historia Global">
+          <div class="stories-viewer-inner">
             <div class="stories-media-wrap">
               <figure class="stories-media" data-stories-media></figure>
               <div class="stories-nav" aria-label="Navegaci&oacute;n de historias">
@@ -290,31 +290,31 @@
         <div class="sponsor-marquee" aria-label="Espacios para marcas aliadas">
           <div class="sponsor-track">
             <div class="sponsor-group">
-              <span class="sponsor-logo" style="--logo-width: 9.7rem; --logo-height: 3.35rem;"><img src="/assets/sponsors/redbull.png" alt="Red Bull" /></span>
-              <span class="sponsor-logo" style="--logo-width: 5.9rem; --logo-height: 3.65rem;"><img src="/assets/sponsors/gatorade.png" alt="Gatorade" /></span>
-              <span class="sponsor-logo" style="--logo-width: 11.1rem; --logo-height: 3.5rem;"><img src="/assets/sponsors/mercantil-andina.png" alt="Mercantil Andina" /></span>
-              <span class="sponsor-logo" style="--logo-width: 7.2rem; --logo-height: 3.55rem;"><img src="/assets/sponsors/bodega-andeluna.png" alt="Bodega Andeluna" /></span>
-              <span class="sponsor-logo" style="--logo-width: 10.2rem; --logo-height: 3.25rem;"><img src="/assets/sponsors/macro.png" alt="Macro" /></span>
-              <span class="sponsor-logo" style="--logo-width: 7.9rem; --logo-height: 3.5rem;"><img src="/assets/sponsors/stella-artois.png" alt="Stella Artois" /></span>
-              <span class="sponsor-logo" style="--logo-width: 10.8rem; --logo-height: 3.25rem;"><img src="/assets/sponsors/septima-wines.png" alt="Septima Wines" /></span>
+              <span class="sponsor-logo" style="--logo-width: 9.7rem; --logo-height: 3.35rem;"><img src="/assets/sponsors/redbull.png" alt="Red Bull" width="774" height="278" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 5.9rem; --logo-height: 3.65rem;"><img src="/assets/sponsors/gatorade.png" alt="Gatorade" width="208" height="225" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 11.1rem; --logo-height: 3.5rem;"><img src="/assets/sponsors/mercantil-andina.png" alt="Mercantil Andina" width="1941" height="688" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 7.2rem; --logo-height: 3.55rem;"><img src="/assets/sponsors/bodega-andeluna.png" alt="Bodega Andeluna" width="143" height="78" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 10.2rem; --logo-height: 3.25rem;"><img src="/assets/sponsors/macro.png" alt="Macro" width="1490" height="346" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 7.9rem; --logo-height: 3.5rem;"><img src="/assets/sponsors/stella-artois.png" alt="Stella Artois" width="266" height="190" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 10.8rem; --logo-height: 3.25rem;"><img src="/assets/sponsors/septima-wines.png" alt="Septima Wines" width="740" height="199" loading="lazy" decoding="async" /></span>
             </div>
             <div class="sponsor-group" aria-hidden="true">
-              <span class="sponsor-logo" style="--logo-width: 9.7rem; --logo-height: 3.35rem;"><img src="/assets/sponsors/redbull.png" alt="" /></span>
-              <span class="sponsor-logo" style="--logo-width: 5.9rem; --logo-height: 3.65rem;"><img src="/assets/sponsors/gatorade.png" alt="" /></span>
-              <span class="sponsor-logo" style="--logo-width: 11.1rem; --logo-height: 3.5rem;"><img src="/assets/sponsors/mercantil-andina.png" alt="" /></span>
-              <span class="sponsor-logo" style="--logo-width: 7.2rem; --logo-height: 3.55rem;"><img src="/assets/sponsors/bodega-andeluna.png" alt="" /></span>
-              <span class="sponsor-logo" style="--logo-width: 10.2rem; --logo-height: 3.25rem;"><img src="/assets/sponsors/macro.png" alt="" /></span>
-              <span class="sponsor-logo" style="--logo-width: 7.9rem; --logo-height: 3.5rem;"><img src="/assets/sponsors/stella-artois.png" alt="" /></span>
-              <span class="sponsor-logo" style="--logo-width: 10.8rem; --logo-height: 3.25rem;"><img src="/assets/sponsors/septima-wines.png" alt="" /></span>
+              <span class="sponsor-logo" style="--logo-width: 9.7rem; --logo-height: 3.35rem;"><img src="/assets/sponsors/redbull.png" alt="" width="774" height="278" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 5.9rem; --logo-height: 3.65rem;"><img src="/assets/sponsors/gatorade.png" alt="" width="208" height="225" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 11.1rem; --logo-height: 3.5rem;"><img src="/assets/sponsors/mercantil-andina.png" alt="" width="1941" height="688" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 7.2rem; --logo-height: 3.55rem;"><img src="/assets/sponsors/bodega-andeluna.png" alt="" width="143" height="78" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 10.2rem; --logo-height: 3.25rem;"><img src="/assets/sponsors/macro.png" alt="" width="1490" height="346" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 7.9rem; --logo-height: 3.5rem;"><img src="/assets/sponsors/stella-artois.png" alt="" width="266" height="190" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 10.8rem; --logo-height: 3.25rem;"><img src="/assets/sponsors/septima-wines.png" alt="" width="740" height="199" loading="lazy" decoding="async" /></span>
             </div>
             <div class="sponsor-group" aria-hidden="true">
-              <span class="sponsor-logo" style="--logo-width: 9.7rem; --logo-height: 3.35rem;"><img src="/assets/sponsors/redbull.png" alt="" /></span>
-              <span class="sponsor-logo" style="--logo-width: 5.9rem; --logo-height: 3.65rem;"><img src="/assets/sponsors/gatorade.png" alt="" /></span>
-              <span class="sponsor-logo" style="--logo-width: 11.1rem; --logo-height: 3.5rem;"><img src="/assets/sponsors/mercantil-andina.png" alt="" /></span>
-              <span class="sponsor-logo" style="--logo-width: 7.2rem; --logo-height: 3.55rem;"><img src="/assets/sponsors/bodega-andeluna.png" alt="" /></span>
-              <span class="sponsor-logo" style="--logo-width: 10.2rem; --logo-height: 3.25rem;"><img src="/assets/sponsors/macro.png" alt="" /></span>
-              <span class="sponsor-logo" style="--logo-width: 7.9rem; --logo-height: 3.5rem;"><img src="/assets/sponsors/stella-artois.png" alt="" /></span>
-              <span class="sponsor-logo" style="--logo-width: 10.8rem; --logo-height: 3.25rem;"><img src="/assets/sponsors/septima-wines.png" alt="" /></span>
+              <span class="sponsor-logo" style="--logo-width: 9.7rem; --logo-height: 3.35rem;"><img src="/assets/sponsors/redbull.png" alt="" width="774" height="278" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 5.9rem; --logo-height: 3.65rem;"><img src="/assets/sponsors/gatorade.png" alt="" width="208" height="225" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 11.1rem; --logo-height: 3.5rem;"><img src="/assets/sponsors/mercantil-andina.png" alt="" width="1941" height="688" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 7.2rem; --logo-height: 3.55rem;"><img src="/assets/sponsors/bodega-andeluna.png" alt="" width="143" height="78" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 10.2rem; --logo-height: 3.25rem;"><img src="/assets/sponsors/macro.png" alt="" width="1490" height="346" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 7.9rem; --logo-height: 3.5rem;"><img src="/assets/sponsors/stella-artois.png" alt="" width="266" height="190" loading="lazy" decoding="async" /></span>
+              <span class="sponsor-logo" style="--logo-width: 10.8rem; --logo-height: 3.25rem;"><img src="/assets/sponsors/septima-wines.png" alt="" width="740" height="199" loading="lazy" decoding="async" /></span>
             </div>
           </div>
         </div>
@@ -357,7 +357,7 @@
             <p>¿Te quedó alguna duda? Contanos qué necesitás o escribinos por WhatsApp.</p>
             <a class="gpc-button contact-whatsapp" href="https://wa.me/543417560704?text=Hola%20Global%2C%20quiero%20recibir%20informacion" target="_blank" rel="noopener noreferrer" data-ga-event="click_whatsapp" data-ga-label="contacto_home">Prefiero hablar por WhatsApp</a>
           </div>
-          <div class="inquiry-panel"><h3>Dejanos tus datos</h3><p class="inquiry-intro">Completá tus datos y elegí el servicio que te interesa.</p><form class="lead-form" data-lead-form data-form-placement="contact_b" method="post"><div class="form-fields"><label><span class="field-label">Nombre</span><input name="name" autocomplete="given-name" maxlength="100" required></label><label><span class="field-label">WhatsApp</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" pattern="[+0-9() .\-]{8,30}" required></label><label><span class="field-label">¿Qué te interesa?</span><select name="service" required><option value="">Seleccioná una opción</option><option value="eventos">Eventos</option><option value="viandas">Viandas</option><option value="bar">Bar / Gastronomía</option><option value="padel">Pádel</option></select></label><label class="form-wide"><span class="field-label">Contanos tu consulta <small>(opcional)</small></span><textarea name="message" rows="3" maxlength="2000"></textarea></label></div><label class="form-trap" aria-hidden="true">Dejá este campo vacío<input name="website" tabindex="-1" autocomplete="off"></label><label class="form-consent"><input type="checkbox" name="consent" required> Acepto que Global me contacte por esta consulta. <a href="/privacidad/">Privacidad</a></label><p class="form-preview" data-form-notice></p><button class="gpc-button gpc-button-primary" type="submit">Quiero recibir información</button><p class="form-status" role="status" aria-live="polite"></p><a class="commercial-inline" data-wa-service="general" href="https://wa.me/543417560704">También podés consultar por WhatsApp</a></form></div>
+          <div class="inquiry-panel"><h3 id="titulo-contacto-form">Dejanos tus datos</h3><p class="inquiry-intro">Nombre, WhatsApp y servicio son obligatorios. Podés sumar un mensaje.</p><form class="lead-form" data-lead-form data-form-placement="contact_b" method="post" aria-labelledby="titulo-contacto-form"><div class="form-fields"><label><span class="field-label">Nombre</span><input name="name" autocomplete="given-name" maxlength="100" required></label><label><span class="field-label">WhatsApp</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" pattern="[+0-9\s\x28\x29.\x2D]{8,30}" title="Ingresá entre 8 y 30 caracteres: números, espacios, paréntesis, + o guiones." required></label><label><span class="field-label">¿Qué te interesa?</span><select name="service" required><option value="">Seleccioná una opción</option><option value="eventos">Eventos</option><option value="viandas">Viandas</option><option value="bar">Bar / Gastronomía</option><option value="padel">Pádel</option></select></label><label class="form-wide"><span class="field-label">Contanos tu consulta <small>(opcional)</small></span><textarea name="message" rows="3" maxlength="2000"></textarea></label></div><label class="form-trap" aria-hidden="true">Dejá este campo vacío<input name="website" tabindex="-1" autocomplete="off"></label><label class="form-consent"><input type="checkbox" name="consent" required> Acepto que Global me contacte por esta consulta. <a href="/privacidad/">Privacidad</a></label><p class="form-preview" data-form-notice></p><button class="gpc-button gpc-button-primary" type="submit">Quiero recibir información</button><p class="form-status" role="status" aria-live="polite"></p><a class="commercial-inline" data-wa-service="general" href="https://wa.me/543417560704">También podés consultar por WhatsApp</a></form></div>
         </div>
       </section>
     </main>
@@ -409,7 +409,7 @@
 
     <script src="/script.js?v=b2"></script>
     <script src="/commercial.js?v=variant-b" defer></script>
-    <script src="/B/ui.js?v=1" defer></script>
+    <script src="/B/ui.js?v=2" defer></script>
   </body>
 </html>
 
